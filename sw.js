@@ -1,22 +1,29 @@
 const VERSION_CACHE = 'elauncher-versions-v1';
-const SHELL_CACHE = 'elauncher-shell-v3'; // Bumped version to force update
+const SHELL_CACHE = 'elauncher-shell-v4'; // Bumped to v4
 
 const PRECACHE_ASSETS = [
-    './', // Cache the root path
-    './index.html',
-    './assets/favicon.ico',
-    './assets/eaglercraft.png',
-    './assets/webassembly.svg',
-    './assets/js.svg'
+    '/',
+    '/assets/favicon.ico',
+    '/assets/eaglercraft.png',
+    '/assets/webassembly.svg',
+    '/assets/js.svg'
 ];
 
 self.addEventListener('install', (event) => {
     self.skipWaiting();
     event.waitUntil(
-        caches.open(SHELL_CACHE).then((cache) => {
-            return cache.addAll(PRECACHE_ASSETS).catch(err => {
-                console.warn('Non-critical precache failed:', err);
-            });
+        caches.open(SHELL_CACHE).then(async (cache) => {
+            // Fetch individually to prevent Vercel 308 Redirects from breaking the cache
+            for (let url of PRECACHE_ASSETS) {
+                try {
+                    const response = await fetch(url, { redirect: 'follow' });
+                    if (response.ok) {
+                        await cache.put(url, response.clone());
+                    }
+                } catch (err) {
+                    console.warn(`Failed to precache ${url}:`, err);
+                }
+            }
         })
     );
 });
@@ -60,13 +67,8 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(
             fetch(event.request).catch(async () => {
                 const cache = await caches.open(SHELL_CACHE);
-                
-                // IMPORTANT: Normalize navigation requests. 
-                // Whether the user asks for '/' or '/index.html', check for both in the cache.
-                const cachedHtml = await cache.match(requestUrl.href) || 
-                                   await cache.match('/') || 
-                                   await cache.match('/index.html');
-                                   
+                // Match against '/' since Vercel serves the root
+                const cachedHtml = await cache.match('/') || await cache.match(requestUrl.pathname);
                 return cachedHtml || new Response('App shell not cached.', { status: 503 });
             })
         );
@@ -74,7 +76,6 @@ self.addEventListener('fetch', (event) => {
     }
 
     // 3. STATIC ASSETS (CSS, Images, Icons)
-    // Strategy: Stale-While-Revalidate
     event.respondWith(
         caches.match(event.request).then((cachedResponse) => {
             const fetchPromise = fetch(event.request).then((networkResponse) => {
