@@ -1,7 +1,7 @@
 {
   "name": "ELauncher for Eaglercraft",
   "short_name": "ELauncher",
-  "start_url": "./index.html",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "landscape",
   "background_color": "#1a1a1a",
