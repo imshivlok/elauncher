@@ -3,6 +3,7 @@ const SHELL_CACHE = 'elauncher-shell-v4'; // Bumped to v4
 
 const PRECACHE_ASSETS = [
     '/',
+    '/static/tailwind.css',
     '/assets/favicon.ico',
     '/assets/eaglercraft.png',
     '/assets/webassembly.svg',
