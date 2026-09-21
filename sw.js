@@ -7,7 +7,8 @@ const PRECACHE_ASSETS = [
     '/assets/favicon.ico',
     '/assets/eaglercraft.png',
     '/assets/webassembly.svg',
-    '/assets/js.svg'
+    '/assets/js.svg',
+    '/assets/wallpaper.png'
 ];
 
 self.addEventListener('install', (event) => {
