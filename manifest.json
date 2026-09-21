@@ -4,8 +4,8 @@
   "start_url": "/",
   "display": "standalone",
   "orientation": "landscape",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
   "description": "Custom launcher for Eaglercraft web clients.",
   "icons": [
     {
