@@ -1,4 +1,4 @@
-const VERSION_CACHE = 'elauncher-versions-v1';
+const VERSION_CACHE = 'elauncher-versions-v2';
 const SHELL_CACHE = 'elauncher-shell-v1';
 
 // Files to cache immediately when the Service Worker installs
