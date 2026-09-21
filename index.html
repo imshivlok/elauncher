@@ -329,12 +329,14 @@
 
         async function downloadToCache(relativeUrl) {
             if (!('caches' in window)) {
-                alert("Cache API is unavailable. Run this launcher over HTTP/HTTPS (like localhost or a web host), not file://.");
+                alert("Cache API is unavailable. Run this launcher over HTTP/HTTPS.");
                 return false;
             }
             const absUrl = getAbsoluteUrl(relativeUrl);
             try {
-                const response = await fetch(relativeUrl);
+                // 'no-store' forces the browser to ignore its hidden temporary HTTP cache 
+                // and perform a true network download, showing actual progress time.
+                const response = await fetch(relativeUrl, { cache: 'no-store' });
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status} when fetching ${relativeUrl}`);
                 }
@@ -353,7 +355,10 @@
             try {
                 const cache = await caches.open(CACHE_NAME);
                 const absUrl = getAbsoluteUrl(relativeUrl);
+                // Delete the absolute URL used by the SW
                 await cache.delete(absUrl);
+                // Delete the relative URL as a fallback failsafe
+                await cache.delete(relativeUrl);
             } catch (err) {
                 console.error("Delete failed:", err);
             }

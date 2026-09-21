@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elauncher-v2';
+const CACHE_NAME = 'elauncher-versions-v3';
 
 self.addEventListener('install', (event) => {
     self.skipWaiting();
@@ -18,20 +18,18 @@ self.addEventListener('fetch', (event) => {
     if (requestUrl.pathname.includes('/versions/')) {
         event.respondWith(
             caches.open(CACHE_NAME).then(async (cache) => {
+                // 1. Try to serve from Download Manager cache
                 const cachedResponse = await cache.match(event.request);
                 if (cachedResponse) {
-                    return cachedResponse;
+                    return cachedResponse; 
                 }
 
-                // If not cached, fetch from network and store in cache automatically
+                // 2. If not cached, fetch normally from network
+                // (We DO NOT use cache.put() here anymore. Saving is strictly handled by index.html)
                 try {
-                    const networkResponse = await fetch(event.request);
-                    if (networkResponse && networkResponse.ok) {
-                        cache.put(event.request, networkResponse.clone());
-                    }
-                    return networkResponse;
+                    return await fetch(event.request);
                 } catch (error) {
-                    return new Response('Version not downloaded and you are offline.', {
+                    return new Response('Version not installed and you are offline.', {
                         status: 503,
                         headers: { 'Content-Type': 'text/plain' }
                     });
