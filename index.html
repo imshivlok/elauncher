@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +11,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="shortcut icon" href="assets/favicon.ico">
-    
+
     <!-- PWA Manifest & Theme Color -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#FFFFFF">
-    
+
     <!-- Compiled Local Tailwind -->
     <link rel="stylesheet" href="static/tailwind.css">
 
@@ -22,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -45,17 +46,29 @@
             }
         }
     </script>
-    
+
     <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
-        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
         .game-bg {
             background-color: #1a1a1a;
-            background-image: 
-                linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5)),
+            background-image:
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
                 url('assets/wallpaper.png');
             background-size: cover;
             background-position: center;
@@ -66,36 +79,44 @@
 <body class="h-screen w-screen overflow-hidden flex flex-col m-0 p-0 font-sans bg-gray-900 text-gray-800">
 
     <div class="flex-1 game-bg relative flex flex-col h-full w-full">
-        
+
         <!-- Main Content Area -->
         <div class="flex-1 flex p-5 gap-5 relative z-10 overflow-hidden w-full mx-auto">
-            
-            <div class="flex-1 bg-white/95 backdrop-blur-sm shadow-2xl overflow-y-auto rounded-sm border border-black/10">
+
+            <div
+                class="flex-1 bg-white/95 backdrop-blur-sm shadow-2xl overflow-y-auto rounded-sm border border-black/10">
                 <div class="p-8 pb-12">
                     <h2 class="text-launcher-greenHeading text-[20px] font-bold mb-2">Be sure to join our Discord!</h2>
                     <p class="text-[13px] text-gray-700 mb-6">
-                        Stay up to date with the latest news, updates, and community events: <a href="#" class="text-orange-500 font-semibold hover:underline">discord.gg/elauncher</a> :)
+                        Stay up to date with the latest news, updates, and community events: <a href="#"
+                            class="text-orange-500 font-semibold hover:underline">discord.gg/elauncher</a> :)
                     </p>
 
-                    <h2 class="text-launcher-blueHeading text-[22px] font-bold mb-2 tracking-tight">Eaglercraft updates are rolling out!</h2>
+                    <h2 class="text-launcher-blueHeading text-[22px] font-bold mb-2 tracking-tight">Eaglercraft updates
+                        are rolling out!</h2>
                     <p class="text-[13px] text-gray-800 leading-relaxed mb-6">
-                        If you encounter an error when launching the latest beta versions, make sure you have the newest web client files. You can configure your launch settings using the bottom panel. Be sure to check the Reddit sub for troubleshooting!
+                        If you encounter an error when launching the latest beta versions, make sure you have the newest
+                        web client files. You can configure your launch settings using the bottom panel. Be sure to
+                        check the Reddit sub for troubleshooting!
                     </p>
 
                     <div class="flex justify-between items-baseline mb-3">
                         <h2 class="text-launcher-blueHeading text-[22px] font-bold tracking-tight">Release Notes</h2>
                         <span class="text-gray-500 text-[12px]">Last updated: Today</span>
                     </div>
-                    
+
                     <h3 class="font-bold text-gray-900 text-[15px] mb-2 mt-5">Performance Improvements (WASM-GC)</h3>
                     <div class="text-[13px] text-gray-800 leading-relaxed space-y-3 mb-6">
-                        <p>- Introduced experimental WebAssembly Garbage Collection (WASM-GC) support. This significantly reduces stuttering and improves overall frame rates on modern browsers.</p>
-                        <p>- Adjusted chunk rendering logic to prioritize blocks closest to the player, reducing initial load times when joining multiplayer servers.</p>
+                        <p>- Introduced experimental WebAssembly Garbage Collection (WASM-GC) support. This
+                            significantly reduces stuttering and improves overall frame rates on modern browsers.</p>
+                        <p>- Adjusted chunk rendering logic to prioritize blocks closest to the player, reducing initial
+                            load times when joining multiplayer servers.</p>
                     </div>
 
                     <h3 class="font-bold text-gray-900 text-[15px] mb-2">Multiplayer Fixes</h3>
                     <div class="text-[13px] text-gray-800 leading-relaxed space-y-3">
-                        <p>- Fixed an issue where WebSockets would drop connection prematurely on high-latency networks.</p>
+                        <p>- Fixed an issue where WebSockets would drop connection prematurely on high-latency networks.
+                        </p>
                         <p>- Added enhanced skin rendering for players using custom Eaglercraft skin URLs.</p>
                         <p>- Voice chat stability improvements across major public instances.</p>
                     </div>
@@ -103,48 +124,63 @@
             </div>
 
             <!-- Right Sidebar -->
-            <div class="w-[250px] bg-launcher-sidebarBase/90 backdrop-blur-md rounded-sm shadow-2xl p-3 flex flex-col border border-white/10 shrink-0">
+            <div
+                class="w-[250px] bg-launcher-sidebarBase/90 backdrop-blur-md rounded-sm shadow-2xl p-3 flex flex-col border border-white/10 shrink-0">
                 <div class="text-center mb-5 mt-2">
-                    <h1 class="text-white text-[28px] font-extrabold tracking-wider leading-none drop-shadow-md">ELAUNCHER</h1>
-                    <p class="text-blue-200/80 text-[9px] tracking-[0.25em] font-semibold mt-1.5">LAUNCHER FOR EAGLERCRAFT</p>
+                    <h1 class="text-white text-[28px] font-extrabold tracking-wider leading-none drop-shadow-md">
+                        ELAUNCHER</h1>
+                    <p class="text-blue-200/80 text-[9px] tracking-[0.25em] font-semibold mt-1.5">LAUNCHER FOR
+                        EAGLERCRAFT</p>
                 </div>
 
                 <div class="flex flex-col gap-1 mb-5">
-                    <button class="bg-white/10 hover:bg-white/20 border border-white/5 transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm">
+                    <button
+                        class="bg-white/10 hover:bg-white/20 border border-white/5 transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm">
                         <div class="w-10 h-full flex items-center justify-center border-r border-white/10 bg-black/10">
                             <i class="fa-solid fa-question text-[13px] opacity-80"></i>
                         </div>
                         <div class="flex-1 text-left pl-3 text-[12px] font-bold tracking-wide text-gray-100">HELP</div>
                     </button>
-                    
-                    <button class="bg-white/10 hover:bg-white/20 border border-white/5 transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm">
+
+                    <button
+                        class="bg-white/10 hover:bg-white/20 border border-white/5 transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm">
                         <div class="w-10 h-full flex items-center justify-center border-r border-white/10 bg-black/10">
                             <i class="fa-solid fa-download text-[13px] opacity-80"></i>
                         </div>
-                        <div class="flex-1 text-left pl-3 text-[12px] font-bold tracking-wide text-gray-100">INSTALL PWA</div>
+                        <div class="flex-1 text-left pl-3 text-[12px] font-bold tracking-wide text-gray-100">INSTALL PWA
+                        </div>
                     </button>
 
-                    <button class="bg-white/10 hover:bg-white/20 border border-white/5 transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm">
+                    <button
+                        class="bg-white/10 hover:bg-white/20 border border-white/5 transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm">
                         <div class="w-10 h-full flex items-center justify-center border-r border-white/10 bg-black/10">
                             <i class="fa-solid fa-play text-[13px] opacity-80"></i>
                         </div>
-                        <div class="flex-1 text-left pl-3 text-[12px] font-bold tracking-wide text-gray-100">GETTING STARTED</div>
+                        <div class="flex-1 text-left pl-3 text-[12px] font-bold tracking-wide text-gray-100">GETTING
+                            STARTED</div>
                     </button>
 
-                    <button class="bg-white/10 hover:bg-white/20 border border-white/5 transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm">
+                    <button
+                        class="bg-white/10 hover:bg-white/20 border border-white/5 transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm">
                         <div class="w-10 h-full flex items-center justify-center border-r border-white/10 bg-black/10">
                             <i class="fa-solid fa-server text-[13px] opacity-80"></i>
                         </div>
-                        <div class="flex-1 text-left pl-3 text-[12px] font-bold tracking-wide text-gray-100">ONLINE SERVERS</div>
+                        <div class="flex-1 text-left pl-3 text-[12px] font-bold tracking-wide text-gray-100">ONLINE
+                            SERVERS</div>
                     </button>
 
-                    <button class="bg-[#e89c2c] hover:bg-[#d68c22] transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm mt-1">
-                        <div class="w-10 h-full flex items-center justify-center border-r border-white/20 bg-black/10 text-[12px] font-black">EL</div>
+                    <button
+                        class="bg-[#e89c2c] hover:bg-[#d68c22] transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm mt-1">
+                        <div
+                            class="w-10 h-full flex items-center justify-center border-r border-white/20 bg-black/10 text-[12px] font-black">
+                            EL</div>
                         <div class="flex-1 text-left pl-3 text-[12px] font-bold tracking-wide">ELAUNCHER.ORG</div>
                     </button>
 
-                    <button class="bg-[#ff4500] hover:bg-[#e03d00] transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm mt-1">
-                        <div class="w-10 h-full flex items-center justify-center border-r border-white/20 bg-black/10 text-[13px]">
+                    <button
+                        class="bg-[#ff4500] hover:bg-[#e03d00] transition-colors h-9 w-full flex items-center text-white overflow-hidden shadow-sm mt-1">
+                        <div
+                            class="w-10 h-full flex items-center justify-center border-r border-white/20 bg-black/10 text-[13px]">
                             <i class="fa-brands fa-reddit-alien"></i>
                         </div>
                         <div class="flex-1 text-left pl-3 text-[12px] font-bold tracking-wide">REDDIT SUB</div>
@@ -152,76 +188,107 @@
                 </div>
 
                 <div class="mt-auto">
-                    <div class="bg-[#18191c] h-24 rounded-sm relative overflow-hidden flex flex-col justify-center px-4 cursor-pointer shadow-lg group border border-[#2d2f33] hover:border-[#5865F2] transition-colors">
+                    <div
+                        class="bg-[#18191c] h-24 rounded-sm relative overflow-hidden flex flex-col justify-center px-4 cursor-pointer shadow-lg group border border-[#2d2f33] hover:border-[#5865F2] transition-colors">
                         <div class="z-10 flex flex-col">
                             <span class="text-white font-bold text-lg leading-tight flex items-center gap-1.5 mb-1">
                                 <i class="fa-brands fa-discord text-[#5865F2]"></i> Discord
                             </span>
-                            <span class="text-[#f3c53e] font-black text-[19px] leading-none tracking-wide group-hover:text-white transition-colors">JOIN US!</span>
+                            <span
+                                class="text-[#f3c53e] font-black text-[19px] leading-none tracking-wide group-hover:text-white transition-colors">JOIN
+                                US!</span>
                         </div>
-                        <div class="absolute right-[-10px] bottom-[-15px] text-[#5865F2] opacity-30 group-hover:opacity-60 group-hover:scale-110 transition-all duration-300">
+                        <div
+                            class="absolute right-[-10px] bottom-[-15px] text-[#5865F2] opacity-30 group-hover:opacity-60 group-hover:scale-110 transition-all duration-300">
                             <i class="fa-brands fa-discord text-[80px]"></i>
                         </div>
-                        <div class="absolute inset-0 bg-gradient-to-r from-[#18191c] via-[#18191c]/80 to-transparent pointer-events-none"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-[#18191c] via-[#18191c]/80 to-transparent pointer-events-none">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Bottom Action Bar -->
-        <div class="bg-launcher-green h-[80px] w-full z-20 flex items-center justify-between px-6 shadow-[0_-5px_25px_rgba(0,0,0,0.4)] shrink-0">
+        <div
+            class="bg-launcher-green h-[80px] w-full z-20 flex items-center justify-between px-6 shadow-[0_-5px_25px_rgba(0,0,0,0.4)] shrink-0">
             <div class="flex items-center gap-4">
-                
+
                 <!-- Version Dropdown -->
                 <div class="relative custom-dropdown" data-id="version">
-                    <div class="dropdown-toggle bg-white hover:bg-gray-50 text-gray-800 text-[14px] font-bold h-11 w-[240px] px-4 shadow-[0_3px_0_rgba(0,0,0,0.15)] active:shadow-none active:translate-y-[3px] transition-all rounded-sm flex items-center justify-between cursor-pointer border border-black/10 select-none">
+                    <div
+                        class="dropdown-toggle bg-white hover:bg-gray-50 text-gray-800 text-[14px] font-bold h-11 w-[240px] px-4 shadow-[0_3px_0_rgba(0,0,0,0.15)] active:shadow-none active:translate-y-[3px] transition-all rounded-sm flex items-center justify-between cursor-pointer border border-black/10 select-none">
                         <div class="flex items-center gap-2 pointer-events-none">
                             <div class="icon-container flex items-center justify-center w-5">
-                                <img src="assets/eaglercraft.png" alt="icon" onerror="this.outerHTML='<i class=\'icon-element fa-solid fa-cube text-[#007cc3] text-[16px]\'></i>'">
+                                <img src="assets/eaglercraft.png" alt="icon"
+                                    onerror="this.outerHTML='<i class=\'icon-element fa-solid fa-cube text-[#007cc3] text-[16px]\'></i>'">
                             </div>
                             <span class="dropdown-label tracking-wide">Eaglercraft 1.8.8</span>
                         </div>
                         <i class="fa-solid fa-caret-down text-gray-400 pointer-events-none"></i>
                     </div>
-                    
-                    <div class="absolute bottom-[calc(100%+6px)] left-0 w-full bg-white border border-black/10 rounded-sm shadow-xl hidden flex-col z-50 overflow-hidden dropdown-menu origin-bottom select-none">
-                        <div class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-2 transition-colors border-b border-gray-100 dropdown-option">
+
+                    <div
+                        class="absolute bottom-[calc(100%+6px)] left-0 w-full bg-white border border-black/10 rounded-sm shadow-xl hidden flex-col z-50 overflow-hidden dropdown-menu origin-bottom select-none">
+                        <div
+                            class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-2 transition-colors border-b border-gray-100 dropdown-option">
                             <div class="flex items-center justify-center w-5 pointer-events-none">
                                 <i class="icon-element fa-solid fa-cube text-[#007cc3] text-[16px]"></i>
                             </div>
-                            <span class="font-bold text-gray-800 text-[13px] pointer-events-none">Eaglercraft 1.12.2 Beta</span>
+                            <span class="font-bold text-gray-800 text-[13px] pointer-events-none">Eaglercraft 1.12.2
+                                Beta</span>
                         </div>
-                        <div class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-2 transition-colors dropdown-option">
+                        <div
+                            class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-2 transition-colors dropdown-option">
                             <div class="flex items-center justify-center w-5 pointer-events-none">
-                                <img src="assets/eaglercraft.png" alt="icon" class="icon-element" onerror="this.outerHTML='<i class=\'icon-element fa-solid fa-cube text-[#007cc3] text-[16px]\'></i>'">
+                                <img src="assets/eaglercraft.png" alt="icon" class="icon-element"
+                                    onerror="this.outerHTML='<i class=\'icon-element fa-solid fa-cube text-[#007cc3] text-[16px]\'></i>'">
                             </div>
-                            <span class="font-bold text-gray-800 text-[13px] pointer-events-none">Eaglercraft 1.8.8</span>
+                            <span class="font-bold text-gray-800 text-[13px] pointer-events-none">Eaglercraft
+                                1.8.8</span>
+                        </div>
+                        <div
+                            class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-2 transition-colors dropdown-option">
+                            <div class="flex items-center justify-center w-5 pointer-events-none">
+                                <img src="assets/eaglercraft.png" alt="icon" class="icon-element"
+                                    onerror="this.outerHTML='<i class=\'icon-element fa-solid fa-cube text-[#007cc3] text-[16px]\'></i>'">
+                            </div>
+                            <span class="font-bold text-gray-800 text-[13px] pointer-events-none">Eaglercraft
+                                1.5.2</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Type Dropdown -->
                 <div class="relative custom-dropdown" data-id="type">
-                    <div class="dropdown-toggle bg-white hover:bg-gray-50 text-gray-800 text-[14px] font-bold h-11 w-[130px] px-4 shadow-[0_3px_0_rgba(0,0,0,0.15)] active:shadow-none active:translate-y-[3px] transition-all rounded-sm flex items-center justify-between cursor-pointer border border-black/10 select-none">
+                    <div
+                        class="dropdown-toggle bg-white hover:bg-gray-50 text-gray-800 text-[14px] font-bold h-11 w-[130px] px-4 shadow-[0_3px_0_rgba(0,0,0,0.15)] active:shadow-none active:translate-y-[3px] transition-all rounded-sm flex items-center justify-between cursor-pointer border border-black/10 select-none">
                         <div class="flex items-center gap-2 pointer-events-none">
                             <div class="icon-container flex items-center justify-center w-5">
-                                <img src="assets/webassembly.svg" alt="icon" onerror="this.outerHTML='<i class=\'icon-element fa-brands fa-webflow text-purple-600 text-[16px]\'></i>'">
+                                <img src="assets/webassembly.svg" alt="icon"
+                                    onerror="this.outerHTML='<i class=\'icon-element fa-brands fa-webflow text-purple-600 text-[16px]\'></i>'">
                             </div>
                             <span class="dropdown-label tracking-wide">WASM</span>
                         </div>
                         <i class="fa-solid fa-caret-down text-gray-400 pointer-events-none"></i>
                     </div>
-                    
-                    <div class="absolute bottom-[calc(100%+6px)] left-0 w-full bg-white border border-black/10 rounded-sm shadow-xl hidden flex-col z-50 overflow-hidden dropdown-menu origin-bottom select-none">
-                        <div class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-2 transition-colors border-b border-gray-100 dropdown-option">
+
+                    <div
+                        class="absolute bottom-[calc(100%+6px)] left-0 w-full bg-white border border-black/10 rounded-sm shadow-xl hidden flex-col z-50 overflow-hidden dropdown-menu origin-bottom select-none">
+                        <div
+                            class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-2 transition-colors border-b border-gray-100 dropdown-option">
                             <div class="flex items-center justify-center w-5 pointer-events-none">
-                                <img src="assets/webassembly.svg" alt="icon" class="icon-element" onerror="this.outerHTML='<i class=\'icon-element fa-brands fa-webflow text-purple-600 text-[16px]\'></i>'">
+                                <img src="assets/webassembly.svg" alt="icon" class="icon-element"
+                                    onerror="this.outerHTML='<i class=\'icon-element fa-brands fa-webflow text-purple-600 text-[16px]\'></i>'">
                             </div>
                             <span class="font-bold text-gray-800 text-[13px] pointer-events-none">WASM</span>
                         </div>
-                        <div class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-2 transition-colors dropdown-option">
+                        <div
+                            class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-2 transition-colors dropdown-option">
                             <div class="flex items-center justify-center w-5 pointer-events-none">
-                                <img src="assets/js.svg" alt="icon" class="icon-element" onerror="this.outerHTML='<i class=\'icon-element fa-brands fa-js text-yellow-500 text-[16px]\'></i>'">
+                                <img src="assets/js.svg" alt="icon" class="icon-element"
+                                    onerror="this.outerHTML='<i class=\'icon-element fa-brands fa-js text-yellow-500 text-[16px]\'></i>'">
                             </div>
                             <span class="font-bold text-gray-800 text-[13px] pointer-events-none">JS</span>
                         </div>
@@ -229,7 +296,8 @@
                 </div>
 
                 <!-- Enter Game Button -->
-                <button id="play-btn" class="ml-2 bg-launcher-yellow hover:bg-launcher-yellowHover text-white text-[18px] font-bold h-11 px-10 shadow-[0_3px_0_var(--tw-shadow-color)] shadow-launcher-yellowShadow active:shadow-none active:translate-y-[3px] transition-all rounded-sm tracking-wide border border-black/5">
+                <button id="play-btn"
+                    class="ml-2 bg-launcher-yellow hover:bg-launcher-yellowHover text-white text-[18px] font-bold h-11 px-10 shadow-[0_3px_0_var(--tw-shadow-color)] shadow-launcher-yellowShadow active:shadow-none active:translate-y-[3px] transition-all rounded-sm tracking-wide border border-black/5">
                     Enter the game
                 </button>
             </div>
@@ -247,7 +315,8 @@
     </div>
 
     <!-- Download Modal Dialog -->
-    <div id="download-modal" class="fixed inset-0 bg-black/60 hidden flex items-center justify-center z-[100] backdrop-blur-sm transition-opacity">
+    <div id="download-modal"
+        class="fixed inset-0 bg-black/60 hidden flex items-center justify-center z-[100] backdrop-blur-sm transition-opacity">
         <div class="bg-white w-[900px] max-w-[95vw] shadow-2xl overflow-hidden flex flex-col font-sans">
             <table class="w-full text-left border-collapse">
                 <thead>
@@ -285,7 +354,7 @@
                         <td class="py-4 px-5">1.8.8</td>
                         <td class="py-4 px-5 text-center action-col"></td>
                     </tr>
-                    <tr class="hover:bg-gray-50 transition-colors">
+                    <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
                         <td class="py-4 px-5">04/04/2023</td>
                         <td class="py-4 px-5">Eaglercraft 1.8.8</td>
                         <td class="py-4 px-5">JS</td>
@@ -293,11 +362,20 @@
                         <td class="py-4 px-5">1.8.8</td>
                         <td class="py-4 px-5 text-center action-col"></td>
                     </tr>
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="py-4 px-5">06/11/2022</td>
+                        <td class="py-4 px-5">Eaglercraft 1.5.2</td>
+                        <td class="py-4 px-5">JS</td>
+                        <td class="py-4 px-5">stable</td>
+                        <td class="py-4 px-5">1.5.2</td>
+                        <td class="py-4 px-5 text-center action-col"></td>
+                    </tr>
                 </tbody>
             </table>
-            
+
             <div class="bg-gray-100 p-4 flex justify-end border-t border-gray-200">
-                <button id="close-modal-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded-sm font-semibold transition-colors text-[13px]">Close</button>
+                <button id="close-modal-btn"
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded-sm font-semibold transition-colors text-[13px]">Close</button>
             </div>
         </div>
     </div>
@@ -305,13 +383,14 @@
     <!-- Scripts -->
     <script>
         const CACHE_NAME = 'elauncher-versions-v1';
-        
+
         // Exact URLs
         const versionsMap = [
             { key: '1.12.2-wasm', url: 'versions/1.12.2-beta/eaglercraft-1.12.2-beta-wasm.html' },
-            { key: '1.12.2-js',   url: 'versions/1.12.2-beta/eaglercraft-1.12.2-beta-js.html' },
-            { key: '1.8.8-wasm',  url: 'versions/1.8.8-stable/eaglercraft-1.8.8-stable-wasm.html' },
-            { key: '1.8.8-js',    url: 'versions/1.8.8-stable/eaglercraft-1.8.8-stable-js.html' }
+            { key: '1.12.2-js', url: 'versions/1.12.2-beta/eaglercraft-1.12.2-beta-js.html' },
+            { key: '1.8.8-wasm', url: 'versions/1.8.8-stable/eaglercraft-1.8.8-stable-wasm.html' },
+            { key: '1.8.8-js', url: 'versions/1.8.8-stable/eaglercraft-1.8.8-stable-js.html' },
+            { key: '1.5.2-js', url: 'versions/1.5.2-stable/eaglercraft-1.5.2-stable-js.html' }
         ];
 
         // Register Service Worker
@@ -435,6 +514,32 @@
                             iconContainer.appendChild(icon.cloneNode(true));
                         }
                         menu.classList.add('hidden');
+
+                        // Handle 1.5.2 Type restriction
+                        if (dropdown.dataset.id === 'version') {
+                            const is152 = label.innerText.includes('1.5.2');
+                            const typeDropdown = document.querySelector('.custom-dropdown[data-id="type"]');
+                            const typeLabel = typeDropdown.querySelector('.dropdown-label');
+                            const typeIconContainer = typeDropdown.querySelector('.icon-container');
+                            const typeOptions = typeDropdown.querySelectorAll('.dropdown-option');
+
+                            typeOptions.forEach(opt => {
+                                const isWasm = opt.querySelector('span').innerText.includes('WASM');
+
+                                if (isWasm) {
+                                    // Hide the WASM option entirely from the menu if 1.5.2 is selected
+                                    opt.style.display = is152 ? 'none' : '';
+                                } else if (is152 && typeLabel.innerText.includes('WASM')) {
+                                    // Force the active label and icon to JS if WASM was previously selected
+                                    typeLabel.innerText = 'JS';
+                                    const jsIcon = opt.querySelector('.icon-element');
+                                    if (jsIcon) {
+                                        typeIconContainer.innerHTML = '';
+                                        typeIconContainer.appendChild(jsIcon.cloneNode(true));
+                                    }
+                                }
+                            });
+                        }
                     });
                 });
             });
@@ -460,11 +565,13 @@
             playBtn.addEventListener('click', async () => {
                 const verLabel = document.querySelector('.custom-dropdown[data-id="version"] .dropdown-label').innerText;
                 const typeLabel = document.querySelector('.custom-dropdown[data-id="type"] .dropdown-label').innerText;
-                
-                const vKey = verLabel.includes('1.8.8') ? '1.8.8' : '1.12.2';
+
+                let vKey = '1.12.2'; // Default fallback
+                if (verLabel.includes('1.8.8')) vKey = '1.8.8';
+                if (verLabel.includes('1.5.2')) vKey = '1.5.2';
                 const tKey = typeLabel.includes('WASM') ? 'wasm' : 'js';
                 const finalKey = `${vKey}-${tKey}`;
-                
+
                 const targetConfig = versionsMap.find(v => v.key === finalKey);
                 if (!targetConfig) return;
 
@@ -474,7 +581,7 @@
                     const originalText = playBtn.innerText;
                     playBtn.innerText = 'Installing...';
                     playBtn.classList.add('opacity-80', 'pointer-events-none');
-                    
+
                     try {
                         const ok = await downloadToCache(targetConfig.url);
                         if (!ok) {
@@ -488,11 +595,12 @@
                         return;
                     }
                 }
-                
+
                 // Navigate - sw.js intercepts and returns cached file immediately
                 window.location.href = targetConfig.url;
             });
         });
     </script>
 </body>
+
 </html>
